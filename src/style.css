@@ -24,6 +24,7 @@ li {
 .weather-description {
   font-size: 39px;
   font-weight: 700;
+  text-transform: capitalize;
 }
 .city-searched {
   font-size: 18px;
@@ -82,4 +83,8 @@ li {
 
 a {
   color: grey;
+}
+
+a:hover {
+  color: #fff;
 }

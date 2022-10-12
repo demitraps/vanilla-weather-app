@@ -16,6 +16,7 @@
       src="https://kit.fontawesome.com/06beaafd16.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,13 +31,15 @@
         <div class="row">
           <div class="col-10">
             <ul>
-              <li class="weather-description">Rainy</li>
-              <li class="city-searched">Athens</li>
+              <li class="weather-description" id="weather-description">
+                Rainy
+              </li>
+              <li class="city-searched" id="city">Athens</li>
               <li class="current-date">Tuesday, 11th Oct '22</li>
               <li class="time-now">20:27</li>
             </ul>
             <ul>
-              <li class="temperature-now">18°C</li>
+              <li class="temperature-now" id="displayed-temperature">18°C</li>
               <li class="unit-switch">switch to °F</li>
               <li class="weather-now-icon">
                 <i class="fa-solid fa-cloud-moon-rain"></i>
@@ -49,22 +52,27 @@
                 Feels like
                 <i class="fa-solid fa-thermometer additions-icon"></i>
               </li>
-              <li class="additions-values">23°C</li>
+              <li class="additions-values" id="feels-like-temp">23°C</li>
 
               <li class="weather-additions">
-                Precipitation <i class="fa-solid fa-fill additions-icon"></i>
+                Min/Max
+                <i class="fa-solid fa-temperature-low additions-icon"></i>
               </li>
-              <li class="additions-values">50%</li>
+              <li class="additions-values">
+                <span id="min-today">min°C</span>/<span id="max-today"
+                  >max°C</span
+                >
+              </li>
 
               <li class="weather-additions">
                 Humidity <i class="fa-solid fa-droplet additions-icon"></i>
               </li>
-              <li class="additions-values">45%</li>
+              <li class="additions-values" id="humidity">45%</li>
 
               <li class="weather-additions">
                 Wind speed <i class="fa-solid fa-wind additions-icon"></i>
               </li>
-              <li class="additions-values wind">10km/h</li>
+              <li class="additions-values wind" id="wind">10km/h</li>
             </ul>
           </div>
           <small class="signature">
