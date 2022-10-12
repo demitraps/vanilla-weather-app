@@ -53,7 +53,6 @@ function formatDate(timestamp) {
 }
 
 function weatherToday(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#displayed-temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#weather-description");
@@ -64,6 +63,41 @@ function weatherToday(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let timeElement = document.querySelector("#time");
+  let iconSelection = response.data.weather[0].icon;
+  let weatherIconElement = document.querySelector("#weather-icon");
+  weatherIconElement.classList.remove("fa-cloud-moon-rain");
+
+  if (iconSelection === "01d") {
+    weatherIconElement.classList.add("fa-sun");
+  } else if (iconSelection === "01n") {
+    weatherIconElement.classList.add("fa-moon");
+  } else if (iconSelection === "02d") {
+    weatherIconElement.classList.add("fa-cloud-sun");
+  } else if (iconSelection === "02n") {
+    weatherIconElement.classList.add("fa-cloud-moon");
+  } else if (
+    iconSelection === "03d" ||
+    iconSelection === "03n" ||
+    iconSelection === "04d" ||
+    iconSelection === "04n"
+  ) {
+    weatherIconElement.classList.add("fa-cloud");
+  } else if (iconSelection === "09d" || iconSelection === "09n") {
+    weatherIconElement.classList.add("fa-cloud-showers-heavy");
+  } else if (iconSelection === "10d") {
+    weatherIconElement.classList.add("fa-cloud-sun-rain");
+  } else if (iconSelection === "10n") {
+    weatherIconElement.classList.add("fa-cloud-moon-rain");
+  } else if (iconSelection === "11d" || iconSelection === "11n") {
+    weatherIconElement.classList.add("fa-cloud-bolt");
+  } else if (iconSelection === "13d" || iconSelection === "13n") {
+    weatherIconElement.classList.add("fa-snowflake");
+  } else if (iconSelection === "50d" || iconSelection === "50n") {
+    weatherIconElement.classList.add("fa-smog");
+  } else {
+    weatherIconElement.classList.add("fa-circle");
+  }
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp) + "°C";
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -77,6 +111,7 @@ function weatherToday(response) {
 }
 
 let apiKey = "dd2a5d7d493e17a8e3e933b9b0723398";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Athens&appid=${apiKey}&units=metric`;
+let city = "Athens";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(weatherToday);
