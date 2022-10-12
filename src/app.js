@@ -110,8 +110,20 @@ function weatherToday(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
-let apiKey = "dd2a5d7d493e17a8e3e933b9b0723398";
-let city = "Athens";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function searchCity(city) {
+  let apiKey = "dd2a5d7d493e17a8e3e933b9b0723398";
+  let citySearched = city;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearched}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(weatherToday);
+}
 
-axios.get(apiUrl).then(weatherToday);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  searchCity(cityInputElement.value);
+}
+
+searchCity("Athens");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

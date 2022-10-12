@@ -23,7 +23,7 @@ li {
 }
 .weather-description {
   font-size: 39px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
 }
 .city-searched {
@@ -87,6 +87,34 @@ a {
 
 a:hover {
   color: #fff;
+}
+
+input {
+  margin-left: 5px;
+  background: transparent;
+  text-align: center;
+  border-width: 1px;
+  border-style: none none solid none;
+  border-color: #fff;
+}
+
+input::placeholder {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+input[type="search"] {
+  color: #fff;
+}
+
+input[type="submit"] {
+  background-color: #fff;
+  border: solid;
+  border-width: 1px;
+  border-color: #fff;
+  border-radius: 6px 6px 6px 6px;
 }
 
 #time {
