@@ -41,8 +41,15 @@
               </li>
             </ul>
             <ul>
-              <li class="temperature-now" id="displayed-temperature">18°C</li>
-              <li class="unit-switch">switch to °F</li>
+              <li class="temperature-now">
+                <span id="displayed-temperature">18</span
+                ><span id="displayed-unit">°C</span>
+              </li>
+              <li class="unit-switch">
+                switch to
+                <a href="#" id="fahreneit-switch">°F</a> |
+                <a href="#" id="celsius-switch">°C</a>
+              </li>
               <li class="weather-now-icon">
                 <i class="fa-solid fa-cloud-moon-rain" id="weather-icon"></i>
               </li>
@@ -51,7 +58,6 @@
               <input
                 type="search"
                 placeholder="Search city..."
-                autofocus="off"
                 id="city-input"
               />
               <input type="submit" value="Go" />
@@ -90,6 +96,7 @@
             <a
               href="https://github.com/demitraps/vanilla-weather-app"
               target="_blank"
+              class="github-link"
               >Open source code</a
             >
             by Demitra Ps

@@ -43,11 +43,42 @@ li {
   font-size: 50px;
   font-weight: 700;
 }
+
+#displayed-temperature {
+  font-size: 50px;
+  font-weight: 700;
+}
+
 .unit-switch {
+  color: #fff;
+  text-decoration: none;
   font-size: 9px;
   font-weight: 800;
-  padding-left: 5px;
   margin-bottom: 10px;
+}
+
+#fahreneit-switch {
+  color: #fff;
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+#celsius-switch:hover {
+  color: rgb(216, 206, 206);
+}
+
+#celsius-switch {
+  color: #fff;
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+#fahreneit-switch:hover {
+  color: rgb(216, 206, 206);
 }
 .weather-now-icon {
   font-size: 80px;
@@ -81,11 +112,12 @@ li {
   font-size: 12px;
 }
 
-a {
+.github-link {
   color: grey;
+  text-decoration: none;
 }
 
-a:hover {
+.github-link:hover {
   color: #fff;
 }
 

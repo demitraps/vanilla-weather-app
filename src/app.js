@@ -98,7 +98,7 @@ function weatherToday(response) {
     weatherIconElement.classList.add("fa-circle");
   }
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp) + "°C";
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like) + "°C";
@@ -108,6 +108,10 @@ function weatherToday(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed) + "km/h";
   timeElement.innerHTML = formatTime(response.data.dt * 1000);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  celsiusTemperature = Math.round(response.data.main.temp);
+  feelingTemperature = Math.round(response.data.main.feels_like);
+  minTemperature = Math.round(response.data.main.temp_min);
+  maxTemperature = Math.round(response.data.main.temp_max);
 }
 
 function searchCity(city) {
@@ -123,7 +127,50 @@ function handleSubmit(event) {
   searchCity(cityInputElement.value);
 }
 
-searchCity("Athens");
+function convertToFahreneit(event) {
+  event.preventDefault();
+  let displayedTemperature = document.querySelector("#displayed-temperature");
+  let displayedUnit = document.querySelector("#displayed-unit");
+  let feelsLikeElement = document.querySelector("#feels-like-temp");
+  let tempMinElement = document.querySelector("#min-today");
+  let tempMaxElement = document.querySelector("#max-today");
+  let fahreneitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  let fahreneitFeelTemperature = Math.round((feelingTemperature * 9) / 5 + 32);
+  let fahreneitMinTemperature = Math.round((minTemperature * 9) / 5 + 32);
+  let fahreneitMaxTemperature = Math.round((maxTemperature * 9) / 5 + 32);
+  displayedTemperature.innerHTML = fahreneitTemperature;
+  displayedUnit.innerHTML = "°F";
+  feelsLikeElement.innerHTML = `${fahreneitFeelTemperature}°F`;
+  tempMinElement.innerHTML = `${fahreneitMinTemperature}°F`;
+  tempMaxElement.innerHTML = `${fahreneitMaxTemperature}°F`;
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let displayedTemperature = document.querySelector("#displayed-temperature");
+  let displayedUnit = document.querySelector("#displayed-unit");
+  let feelsLikeElement = document.querySelector("#feels-like-temp");
+  let tempMinElement = document.querySelector("#min-today");
+  let tempMaxElement = document.querySelector("#max-today");
+  displayedTemperature.innerHTML = celsiusTemperature;
+  displayedUnit.innerHTML = "°C";
+  feelsLikeElement.innerHTML = `${feelingTemperature}°C`;
+  tempMinElement.innerHTML = `${minTemperature}°C`;
+  tempMaxElement.innerHTML = `${maxTemperature}°C`;
+}
+
+let celsiusTemperature = null;
+let feelingTemperature = null;
+let minTemperature = null;
+let maxTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahreneitSwitch = document.querySelector("#fahreneit-switch");
+fahreneitSwitch.addEventListener("click", convertToFahreneit);
+
+let celsiusSwitch = document.querySelector("#celsius-switch");
+celsiusSwitch.addEventListener("click", convertToCelsius);
+
+searchCity("Athens");
