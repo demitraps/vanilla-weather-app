@@ -52,6 +52,27 @@ function formatDate(timestamp) {
   return `${day}, ${month} ${date}${ordinalIndicator} ${year}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `           <div class="col-2">
+                <div class="forecast-day">${day}</div>
+                <div class="forecast-max">23°C</div>
+                <div class="forecast-min">17°C</div>
+                <div class="forecast-icon">
+                  <i class="fa-solid fa-cloud-moon-rain"></i>
+                </div>
+              </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function weatherToday(response) {
   let temperatureElement = document.querySelector("#displayed-temperature");
   let cityElement = document.querySelector("#city");
@@ -64,19 +85,30 @@ function weatherToday(response) {
   let dateElement = document.querySelector("#date");
   let timeElement = document.querySelector("#time");
   let weatherIconElement = document.querySelector("#weather-icon");
-
+  weatherIconElement.classList = "fa-solid";
   let iconSelection = response.data.weather[0].icon;
-  weatherIconElement.classList.remove("fa-cloud-moon-rain");
-  console.log(response.data.weather[0].icon);
 
   if (iconSelection === "01d") {
     weatherIconElement.classList.add("fa-sun");
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1502200893034-b7bca90610ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80")`;
   } else if (iconSelection === "01n") {
     weatherIconElement.classList.add("fa-moon");
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1532978379173-523e16f371f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
   } else if (iconSelection === "02d") {
     weatherIconElement.classList.add("fa-cloud-sun");
+    document.getElementById("github").style.color = "#393e46";
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80")`;
   } else if (iconSelection === "02n") {
     weatherIconElement.classList.add("fa-cloud-moon");
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1604338140746-e5c59638aeda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
   } else if (
     iconSelection === "03d" ||
     iconSelection === "03n" ||
@@ -84,18 +116,46 @@ function weatherToday(response) {
     iconSelection === "04n"
   ) {
     weatherIconElement.classList.add("fa-cloud");
+    document.getElementById("github").style.color = "#222831";
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1543587044-ab01bb69aca9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
   } else if (iconSelection === "09d" || iconSelection === "09n") {
     weatherIconElement.classList.add("fa-cloud-showers-heavy");
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1511935456800-a6bffda8bb9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80")`;
   } else if (iconSelection === "10d") {
     weatherIconElement.classList.add("fa-cloud-sun-rain");
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.pexels.com/photos/1089455/pexels-photo-1089455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")`;
   } else if (iconSelection === "10n") {
     weatherIconElement.classList.add("fa-cloud-moon-rain");
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80")`;
   } else if (iconSelection === "11d" || iconSelection === "11n") {
     weatherIconElement.classList.add("fa-cloud-bolt");
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1576290134419-915a21939122?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
   } else if (iconSelection === "13d" || iconSelection === "13n") {
     weatherIconElement.classList.add("fa-snowflake");
+    document.getElementById("weather-app").style.color = "#3a4750";
+    document.getElementById("city-input").style.color = "#3a4750";
+    document.getElementById("github").style.color = "#222831";
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1422930717940-92ec7c690afc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80")`;
   } else if (iconSelection === "50d" || iconSelection === "50n") {
     weatherIconElement.classList.add("fa-smog");
+    document.getElementById("weather-app").style.color = "#757a79";
+    document.getElementById("city-input").style.color = "#393e46";
+    document.getElementById("github").style.color = "#393e46";
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1603794052293-650dbdeef72c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80")`;
   } else {
     weatherIconElement.classList.add("fa-circle");
   }
@@ -176,3 +236,4 @@ let celsiusSwitch = document.querySelector("#celsius-switch");
 celsiusSwitch.addEventListener("click", convertToCelsius);
 
 searchCity("Athens");
+displayForecast();

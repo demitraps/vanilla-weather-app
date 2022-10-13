@@ -45,7 +45,7 @@
                 <span id="displayed-temperature">18</span
                 ><span id="displayed-unit">°C</span>
               </li>
-              <li class="unit-switch">
+              <li class="unit-switch" id="switch">
                 switch to
                 <a href="#" id="fahreneit-switch">°F</a> |
                 <a href="#" id="celsius-switch">°C</a>
@@ -92,21 +92,13 @@
               <li class="additions-values wind" id="wind">10km/h</li>
             </ul>
           </div>
-          <div class="row">
-            <div class="col-2">
-              <div class="forecast-day">Friday</div>
-              <div class="forecast-max">23°C</div>
-              <div class="forecast-min">17°C</div>
-              <div class="forecast-icon">
-                <i class="fa-solid fa-cloud-moon-rain"></i>
-              </div>
-            </div>
-          </div>
+          <div id="forecast"></div>
           <small class="signature">
             <a
               href="https://github.com/demitraps/vanilla-weather-app"
               target="_blank"
               class="github-link"
+              id="github"
               >Open source code</a
             >
             by Demitra Ps

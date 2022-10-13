@@ -146,12 +146,17 @@ input[type="submit"] {
 }
 
 .github-link {
-  color: grey;
+  color: rgb(200, 194, 194);
   text-decoration: none;
 }
 
 .github-link:hover {
   color: #fff;
+}
+
+#forecast {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .forecast-day {
