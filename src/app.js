@@ -52,22 +52,79 @@ function formatDate(timestamp) {
   return `${day}, ${month} ${date}${ordinalIndicator} ${year}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
+function defineIconClass(value) {
+  let iconValue = value;
+  console.log(iconValue);
+  if (iconValue === "01d") {
+    return "fa-sun";
+  } else if (iconValue === "01n") {
+    return "fa-moon";
+  } else if (iconValue === "02d") {
+    return "fa-cloud-sun";
+  } else if (iconValue === "02n") {
+    return "fa-cloud-moon";
+  } else if (
+    iconValue === "03d" ||
+    iconValue === "03n" ||
+    iconValue === "04d" ||
+    iconValue === "04n"
+  ) {
+    return "fa-cloud";
+  } else if (iconValue === "09d" || iconValue === "09n") {
+    return "fa-cloud-showers-heavy";
+  } else if (iconValue === "10d") {
+    return "fa-cloud-sun-rain";
+  } else if (iconValue === "10n") {
+    return "fa-cloud-moon-rain";
+  } else if (iconValue === "11d" || iconValue === "11n") {
+    return "fa-cloud-bolt";
+  } else if (iconValue === "13d" || iconValue === "13n") {
+    return "fa-snowflake";
+  } else if (iconValue === "50d" || iconValue === "50n") {
+    return "fa-smog";
+  } else {
+    return "fa-circle";
+  }
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `           <div class="col-2">
-                <div class="forecast-day">${day}</div>
-                <div class="forecast-max">23°C</div>
-                <div class="forecast-min">17°C</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 7 && index > 0) {
+      let iconValue = forecastDay.weather[0].icon;
+
+      forecastHTML =
+        forecastHTML +
+        `           <div class="col-2">
+                <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
+                <div class="forecast-max">${Math.round(
+                  forecastDay.temp.max
+                )}°C</div>
+                <div class="forecast-min">${Math.round(
+                  forecastDay.temp.min
+                )}°C</div>
                 <div class="forecast-icon">
-                  <i class="fa-solid fa-cloud-moon-rain"></i>
+                  <i class="fa-solid ${defineIconClass(iconValue)}"></i>
                 </div>
               </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -126,7 +183,7 @@ function weatherToday(response) {
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1543587044-ab01bb69aca9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
   } else if (iconSelection === "03n" || iconSelection === "04n") {
     weatherIconElement.classList.add("fa-cloud");
-    document.getElementById("github").style.color = "#222831";
+    document.getElementById("github").style.color = "#000";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1594887384928-0568e6034b54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1868&q=80")`;
