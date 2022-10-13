@@ -27,14 +27,14 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
+      <div class="weather-app" id="weather-app">
         <div class="row">
           <div class="col-10">
             <ul>
               <li class="weather-description" id="weather-description">
                 Rainy
               </li>
-              <li class="city-searched" id="city">Athens</li>
+              <li class="city-searched" id="city"></li>
               <li class="current-date" id="date">Tuesday, 11th Oct '22</li>
               <li class="time-now">
                 last updated at <span id="time">20:27</span>
@@ -91,6 +91,16 @@
               </li>
               <li class="additions-values wind" id="wind">10km/h</li>
             </ul>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <div class="forecast-day">Friday</div>
+              <div class="forecast-max">23°C</div>
+              <div class="forecast-min">17°C</div>
+              <div class="forecast-icon">
+                <i class="fa-solid fa-cloud-moon-rain"></i>
+              </div>
+            </div>
           </div>
           <small class="signature">
             <a

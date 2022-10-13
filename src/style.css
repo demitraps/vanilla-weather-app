@@ -18,7 +18,7 @@ li {
 }
 
 .weather-app {
-  padding: 80px 5px 0px 5px;
+  padding: 50px 5px 0px 5px;
   color: #fff;
 }
 .weather-description {
@@ -106,21 +106,6 @@ li {
   padding-bottom: 10px;
 }
 
-.signature {
-  text-align: center;
-  font-weight: 600;
-  font-size: 12px;
-}
-
-.github-link {
-  color: grey;
-  text-decoration: none;
-}
-
-.github-link:hover {
-  color: #fff;
-}
-
 input {
   margin-left: 5px;
   background: transparent;
@@ -151,4 +136,45 @@ input[type="submit"] {
 
 #time {
   font-weight: 800;
+}
+
+.signature {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.github-link {
+  color: grey;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  color: #fff;
+}
+
+.forecast-day {
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 35px;
+}
+
+.forecast-max {
+  text-align: center;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.forecast-min {
+  text-align: left;
+  font-weight: 300;
+  font-size: 15px;
+  padding-left: 58px;
+}
+
+.forecast-icon {
+  text-align: center;
+  font-size: 52px;
 }

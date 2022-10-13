@@ -63,9 +63,11 @@ function weatherToday(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let timeElement = document.querySelector("#time");
-  let iconSelection = response.data.weather[0].icon;
   let weatherIconElement = document.querySelector("#weather-icon");
+
+  let iconSelection = response.data.weather[0].icon;
   weatherIconElement.classList.remove("fa-cloud-moon-rain");
+  console.log(response.data.weather[0].icon);
 
   if (iconSelection === "01d") {
     weatherIconElement.classList.add("fa-sun");
