@@ -52,7 +52,8 @@ function formatDate(timestamp) {
   return `${day}, ${month} ${date}${ordinalIndicator} ${year}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
@@ -71,6 +72,14 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiKey = "dd2a5d7d493e17a8e3e933b9b0723398";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function weatherToday(response) {
@@ -109,17 +118,18 @@ function weatherToday(response) {
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1604338140746-e5c59638aeda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
-  } else if (
-    iconSelection === "03d" ||
-    iconSelection === "03n" ||
-    iconSelection === "04d" ||
-    iconSelection === "04n"
-  ) {
+  } else if (iconSelection === "03d" || iconSelection === "04d") {
     weatherIconElement.classList.add("fa-cloud");
     document.getElementById("github").style.color = "#222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1543587044-ab01bb69aca9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
+  } else if (iconSelection === "03n" || iconSelection === "04n") {
+    weatherIconElement.classList.add("fa-cloud");
+    document.getElementById("github").style.color = "#222831";
+    document.querySelector(
+      "body"
+    ).style.backgroundImage = `url("https://images.unsplash.com/photo-1594887384928-0568e6034b54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1868&q=80")`;
   } else if (iconSelection === "09d" || iconSelection === "09n") {
     weatherIconElement.classList.add("fa-cloud-showers-heavy");
     document.querySelector(
@@ -174,6 +184,8 @@ function weatherToday(response) {
   feelingTemperature = Math.round(response.data.main.feels_like);
   minTemperature = Math.round(response.data.main.temp_min);
   maxTemperature = Math.round(response.data.main.temp_max);
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -236,4 +248,3 @@ let celsiusSwitch = document.querySelector("#celsius-switch");
 celsiusSwitch.addEventListener("click", convertToCelsius);
 
 searchCity("Athens");
-displayForecast();
