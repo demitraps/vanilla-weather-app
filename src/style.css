@@ -18,7 +18,7 @@ li {
 }
 
 .weather-app {
-  padding: 50px 5px 0px 5px;
+  padding: 42px 5px 0px 5px;
   color: #fff;
 }
 .weather-description {
@@ -146,7 +146,7 @@ input[type="submit"] {
 }
 
 .github-link {
-  color: rgb(200, 194, 194);
+  color: #c8c2c2;
   text-decoration: none;
 }
 
@@ -182,4 +182,5 @@ input[type="submit"] {
 .forecast-icon {
   text-align: center;
   font-size: 52px;
+  padding-bottom: 10px;
 }

@@ -69,7 +69,6 @@ function formatDay(timestamp) {
 
 function defineIconClass(value) {
   let iconValue = value;
-  console.log(iconValue);
   if (iconValue === "01d") {
     return "fa-sun";
   } else if (iconValue === "01n") {
@@ -157,7 +156,7 @@ function weatherToday(response) {
     weatherIconElement.classList.add("fa-sun");
     document.getElementById("weather-app").style.color = "#fff";
     document.getElementById("city-input").style.color = "#fff";
-    document.getElementById("github").style.color = "##222831";
+    document.getElementById("github").style.color = "#222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1502200893034-b7bca90610ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80")`;
@@ -165,7 +164,7 @@ function weatherToday(response) {
     weatherIconElement.classList.add("fa-moon");
     document.getElementById("weather-app").style.color = "#fff";
     document.getElementById("city-input").style.color = "#fff";
-    document.getElementById("github").style.color = "##222831";
+    document.getElementById("github").style.color = "#C8C2C2";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1532978379173-523e16f371f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
@@ -181,7 +180,7 @@ function weatherToday(response) {
     weatherIconElement.classList.add("fa-cloud-moon");
     document.getElementById("weather-app").style.color = "#fff";
     document.getElementById("city-input").style.color = "#fff";
-    document.getElementById("github").style.color = "##222831";
+    document.getElementById("github").style.color = "#C8C2C2";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1604338140746-e5c59638aeda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
@@ -205,7 +204,7 @@ function weatherToday(response) {
     weatherIconElement.classList.add("fa-cloud-showers-heavy");
     document.getElementById("weather-app").style.color = "#fff";
     document.getElementById("city-input").style.color = "#fff";
-    document.getElementById("github").style.color = "##222831";
+    document.getElementById("github").style.color = "#C8C2C2";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1511935456800-a6bffda8bb9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80")`;
@@ -213,7 +212,7 @@ function weatherToday(response) {
     weatherIconElement.classList.add("fa-cloud-sun-rain");
     document.getElementById("weather-app").style.color = "#fff";
     document.getElementById("city-input").style.color = "#fff";
-    document.getElementById("github").style.color = "##222831";
+    document.getElementById("github").style.color = "#C8C2C2";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.pexels.com/photos/1089455/pexels-photo-1089455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")`;
@@ -221,7 +220,7 @@ function weatherToday(response) {
     weatherIconElement.classList.add("fa-cloud-moon-rain");
     document.getElementById("weather-app").style.color = "#fff";
     document.getElementById("city-input").style.color = "#fff";
-    document.getElementById("github").style.color = "##222831";
+    document.getElementById("github").style.color = "#C8C2C2";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80")`;
@@ -229,7 +228,7 @@ function weatherToday(response) {
     weatherIconElement.classList.add("fa-cloud-bolt");
     document.getElementById("weather-app").style.color = "#fff";
     document.getElementById("city-input").style.color = "#fff";
-    document.getElementById("github").style.color = "##222831";
+    document.getElementById("github").style.color = "#C8C2C2";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1576290134419-915a21939122?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
@@ -252,7 +251,7 @@ function weatherToday(response) {
   } else {
     document.getElementById("weather-app").style.color = "#fff";
     document.getElementById("city-input").style.color = "#fff";
-    document.getElementById("github").style.color = "##222831";
+    document.getElementById("github").style.color = "#222831";
     weatherIconElement.classList.add("fa-circle");
   }
 
