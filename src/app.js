@@ -109,7 +109,6 @@ function displayForecast(response) {
   forecast.forEach(function (forecastDay, index) {
     if (index < 7 && index > 0) {
       let iconValue = forecastDay.weather[0].icon;
-
       forecastHTML =
         forecastHTML +
         `           <div class="col-2">
@@ -156,54 +155,81 @@ function weatherToday(response) {
 
   if (iconSelection === "01d") {
     weatherIconElement.classList.add("fa-sun");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
+    document.getElementById("github").style.color = "##222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1502200893034-b7bca90610ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80")`;
   } else if (iconSelection === "01n") {
     weatherIconElement.classList.add("fa-moon");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
+    document.getElementById("github").style.color = "##222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1532978379173-523e16f371f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
   } else if (iconSelection === "02d") {
     weatherIconElement.classList.add("fa-cloud-sun");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
     document.getElementById("github").style.color = "#393e46";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1525490829609-d166ddb58678?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80")`;
   } else if (iconSelection === "02n") {
     weatherIconElement.classList.add("fa-cloud-moon");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
+    document.getElementById("github").style.color = "##222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1604338140746-e5c59638aeda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
   } else if (iconSelection === "03d" || iconSelection === "04d") {
     weatherIconElement.classList.add("fa-cloud");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
     document.getElementById("github").style.color = "#222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1543587044-ab01bb69aca9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
   } else if (iconSelection === "03n" || iconSelection === "04n") {
     weatherIconElement.classList.add("fa-cloud");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
     document.getElementById("github").style.color = "#000";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1594887384928-0568e6034b54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1868&q=80")`;
   } else if (iconSelection === "09d" || iconSelection === "09n") {
     weatherIconElement.classList.add("fa-cloud-showers-heavy");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
+    document.getElementById("github").style.color = "##222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1511935456800-a6bffda8bb9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80")`;
   } else if (iconSelection === "10d") {
     weatherIconElement.classList.add("fa-cloud-sun-rain");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
+    document.getElementById("github").style.color = "##222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.pexels.com/photos/1089455/pexels-photo-1089455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")`;
   } else if (iconSelection === "10n") {
     weatherIconElement.classList.add("fa-cloud-moon-rain");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
+    document.getElementById("github").style.color = "##222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80")`;
   } else if (iconSelection === "11d" || iconSelection === "11n") {
     weatherIconElement.classList.add("fa-cloud-bolt");
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
+    document.getElementById("github").style.color = "##222831";
     document.querySelector(
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1576290134419-915a21939122?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")`;
@@ -224,6 +250,9 @@ function weatherToday(response) {
       "body"
     ).style.backgroundImage = `url("https://images.unsplash.com/photo-1603794052293-650dbdeef72c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80")`;
   } else {
+    document.getElementById("weather-app").style.color = "#fff";
+    document.getElementById("city-input").style.color = "#fff";
+    document.getElementById("github").style.color = "##222831";
     weatherIconElement.classList.add("fa-circle");
   }
 

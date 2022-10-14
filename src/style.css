@@ -29,7 +29,7 @@ li {
 .city-searched {
   font-size: 18px;
   font-weight: 400;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 .current-date {
   font-size: 11px;
@@ -163,7 +163,7 @@ input[type="submit"] {
   text-align: center;
   font-weight: 400;
   font-size: 18px;
-  margin-top: 35px;
+  margin-top: 30px;
 }
 
 .forecast-max {
@@ -176,7 +176,7 @@ input[type="submit"] {
   text-align: left;
   font-weight: 300;
   font-size: 15px;
-  padding-left: 58px;
+  padding-left: 65px;
 }
 
 .forecast-icon {
